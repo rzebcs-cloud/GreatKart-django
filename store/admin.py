@@ -8,3 +8,10 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('product_name',)}
     
 admin.site.register(models.Product, ProductAdmin)
+
+class VariationAdmin(admin.ModelAdmin):
+    list_display = ('product', 'variation_category', 'variation_value', 'created_date')
+    # list_editable = ('is_active',)
+    list_filter = ('variation_category', 'is_active')
+
+admin.site.register(models.Variation, VariationAdmin)
